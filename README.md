@@ -48,3 +48,9 @@ The training data consists of 4 distinct classes, made up from 100 data points.
 ## Testing Data
 The test data is similar to the training data, however there is more data (200 points). When the model evaluates the training data, the labels should correspond to this graph.
 ![Test Set](/figs/test_set.png)
+
+
+![Training](/figs/train_loss.png)
+
+
+![Prediction Set](/figs/prediction_set.png)
