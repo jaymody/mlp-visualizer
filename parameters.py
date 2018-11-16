@@ -1,6 +1,9 @@
+# Random module for seed
+import random
+
 ###  Hyperparameters   ##
 NAME = 'classifier_model.{}'.format('h5') # name of the saved model
-seed = 422 # Seed for the generated sklearn blobs
+seed = random.randint(9999) # Seed for the generated sklearn blobs (used 422 for git repo)
 
 n_features = 2 # number of input variables (must be  2 for accurate plotting in matplotlib)
 l1 = 32 # first hidden layer nodes
