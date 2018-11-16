@@ -14,6 +14,37 @@ Using scikit API make_blob and keras, I created distinct number of clusters (num
 After running the program, new plots should be generated under figs/
 The trained model should be saved to saved_models/
 
-###### Training Data
+Below are the results using my data and network parameters.
+
+
+## Model Summary
+The model is a simple mlp with 3 hidden layers, all using the relu activation function (output layer uses sigmoid). The summary can be found below:
+
+| Model Summary |
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 32)                96        
+_________________________________________________________________
+dense_2 (Dense)              (None, 32)                1056      
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                528       
+_________________________________________________________________
+dense_4 (Dense)              (None, 4)                 68        
+=================================================================
+Total params: 1,748
+Trainable params: 1,748
+Non-trainable params: 0
+_________________________________________________________________
+
+
+
+## Training Data
 The training data consists of 4 distinct classes, made up from 100 data points.
-![Training Set](/figs/train_set.png)
+![Train Set](/figs/train_set.png)
+
+
+
+## Testing Data
+The test data is similar to the training data, however there is more data (200 points). When the model evaluates the training data, the labels should correspond to this graph.
+![Test Set](/figs/test_set.png)
