@@ -1,115 +1,93 @@
+# Imports
+from parameters import *
+
 import numpy as np
-import time
 
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.losses import binary_crossentropy
 from keras.optimizers import Adam
 
 import matplotlib.pyplot as plt
-
 from sklearn.datasets import make_blobs
 
-###  Hyperparameters  ###
-NAME = 'saved_model.{}'.format('keras')
-
-n_features = 2 # number of input variables (2, for 2d plotting in matplotlib)
-l1 = 32
-l2 = 32
-l3 = 16
-n_classes = 4 # output nodes
-
-n_samples = 100
-cluster_std = 0.7
-
-seed1 = 202
-seed2 = 422
-
-n_epochs = 20
-batch_size = 1
-learn_rate = 0.001
 
 
 ###  Dataset  ###
-x_train, y_train_raw = make_blobs(n_samples = n_samples, 
+x_train, y_train_raw = make_blobs(n_samples = n_training_samples, 
 	n_features = n_features, 
 	centers = n_classes, 
 	cluster_std = cluster_std, 
-	random_state = seed2)
+	random_state = seed)
 
-#one-hot encodes the y values (categorically encoding the data)
+# one-hot encodes the y values (categorically encoding the data)
 y_train = np.zeros((y_train_raw.shape[0], n_classes))
 y_train[np.arange(y_train_raw.size), y_train_raw] = 1
 
-# print("...data succesfully created... \n")
-
+# scatterplot of the training  data
 plt.scatter(x_train[:, 0], x_train[:, 1], c = y_train_raw, cmap = 'coolwarm')
 plt.draw()
-plt.savefig('fig1.png')
+plt.savefig('{}{}'.format(path_plots, 'train_set.png'))
+plt.close()
 
 
 ###  Train and Validation Sets  ###
 percent_val  = 0.2
 percent_index = int(0.2 * int(x_train.shape[0]))
 
+# creates validation and training features
 x_val = x_train[-percent_index:]
 x_train = x_train[:-percent_index]
 
+# creates validation and training labels
 y_val =  y_train[-percent_index:]
 y_train = y_train[:-percent_index]
 
+# asserts that the new number of samples of the labels and targets for val/train sets are the same
 assert(x_train.shape[0] == y_train.shape[0])
 assert(x_val.shape[0] == y_val.shape[0])
 
-# print("...training and validation sets created... ")
-# print('{} data length: {}'.format('Training', len(x_train)))
-# print('{} data length: {}'.format('Validation', len(x_val)))
-# print()
 
 
-###  Neural Network  ###
+###  Neural Network  Model  ###
 model = Sequential()
 
-model.add(Dense(l1, input_shape = x_train.shape[1:], activation = 'relu'))
-model.add(Dense(l2, activation = 'relu'))
-model.add(Dense(l3, activation = 'relu'))
-model.add(Dense(n_classes, activation = 'sigmoid'))
+# Model layers
+model.add(Dense(l1, input_shape = x_train.shape[1:], activation = 'relu')) # input layer
+model.add(Dense(l2, activation = 'relu')) # hidden layer 1
+model.add(Dense(l3, activation = 'relu')) # hidden layer 2
+model.add(Dense(n_classes, activation = 'sigmoid')) # output layer
 
-# print("...model succesfully created...")
+# Prints a summary of the model shape/architecture
+print("| Model Summary |")
 model.summary()
-# print()
+print()
+
 
 
 ###  Compile and Train Model  ###
-model.compile(loss = binary_crossentropy, optimizer = Adam(learn_rate), metrics = ['accuracy'])
-# print('...model succesfully compiled...\n')
+print("| Model Training |\n")
 
-model.fit(x_train, 
+# Compiles the model
+model.compile(loss = loss_op, 
+	optimizer = Adam(learn_rate), 
+	metrics = ['accuracy'])
+
+# Trains the model
+history = model.fit(x_train, 
 	y_train, 
 	batch_size = batch_size, 
 	epochs = n_epochs, 
 	validation_data = (x_val, y_val), 
 	verbose = 2)
-# print('...model succesfully trained...\n')
 
-model.save(NAME)
-# print('...model succesfully saved as "' + NAME + '"...')
-
-
-###  Testing Model  ###
-x_test, y_test = make_blobs(n_samples = 200, 
-	n_features = n_features, 
-	centers = n_classes, 
-	cluster_std = cluster_std, 
-	random_state = seed2)
-
-predictions = model.predict(x_test)
-predictions = [predictions[i,:].argmax() for i in range(int(predictions.shape[0]))]
-
-plt.scatter(x_test[:, 0], x_test[:, 1], c = predictions, cmap = 'coolwarm')
+loss_data = history.history['loss']
+val_loss_data = history.history['val_loss']
+plt.plot(loss_data)
+plt.plot(val_loss_data)
+plt.legend(['loss', 'val_loss'])
 plt.draw()
-plt.savefig('fig2.png')
+plt.savefig('{}{}'.format(path_plots, 'train_loss.png'))
 
-plt.scatter(x_test[:, 0], x_test[:, 1], c = y_test, cmap = 'coolwarm')
-plt.draw()
-plt.savefig('fig3.png')
+# Saves the model
+model.save('{}{}'.format(path_models, NAME))
+print("\nModel succsefully trained as saved, done executing classifier.py\n")
