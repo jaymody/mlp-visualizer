@@ -22,6 +22,7 @@ The model is a simple mlp with 3 hidden layers, all using the relu activation fu
 
 | Model Summary |
 
+<<<<<<< HEAD
 Layer (type) | Output Shape | Param #
 --- | --- | ---
 *Still* | `renders` | **nicely**
@@ -29,10 +30,39 @@ dense_1 (Dense) | (None, 32) | 96
 dense_2 (Dense) | (None, 32) | 1056
 dense_3 (Dense) | (None, 16) | 528
 dense_4 (Dense) | (None, 4) | 68
+=======
+\_________________________________________________________________
+
+Layer (type)                 Output Shape              Param #    
+
+\=================================================================
+
+dense_1 (Dense)              (None, 32)                96         
+
+\_________________________________________________________________
+
+dense_2 (Dense)              (None, 32)                1056       
+
+\_________________________________________________________________
+
+dense_3 (Dense)              (None, 16)                528        
+
+\_________________________________________________________________
+
+dense_4 (Dense)              (None, 4)                 68         
+
+\=================================================================
+>>>>>>> 11360a4eb9e5843970c58904e09880a42a4d1c4c
 
 Total params: 1,748
 Trainable params: 1,748
 Non-trainable params: 0
+<<<<<<< HEAD
+=======
+
+\_________________________________________________________________
+
+>>>>>>> 11360a4eb9e5843970c58904e09880a42a4d1c4c
 
 
 ## Training Data
@@ -44,9 +74,12 @@ The training data consists of 4 distinct classes, made up from 100 data points.
 ## Testing Data
 The test data is similar to the training data, however there is more data (200 points). When the model evaluates the training data, the labels should correspond to this graph.
 ![Test Set](/figs/test_set.png)
+<<<<<<< HEAD
 
 
 ![Training](/figs/train_loss.png)
 
 
 ![Prediction Set](/figs/prediction_set.png)
+=======
+>>>>>>> 11360a4eb9e5843970c58904e09880a42a4d1c4c
