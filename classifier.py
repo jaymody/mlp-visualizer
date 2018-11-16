@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_blobs
 
 ###  Hyperparameters  ###
-NAME = 'Binary_Classifier{}.{}'.format(time.time(), 'keras')
+NAME = 'saved_model.{}'.format('keras')
 
 n_features = 2 # number of input variables (2, for 2d plotting in matplotlib)
 l1 = 32
@@ -44,7 +44,8 @@ y_train[np.arange(y_train_raw.size), y_train_raw] = 1
 # print("...data succesfully created... \n")
 
 plt.scatter(x_train[:, 0], x_train[:, 1], c = y_train_raw, cmap = 'coolwarm')
-plt.show()
+plt.draw()
+plt.savefig('fig1.png')
 
 
 ###  Train and Validation Sets  ###
@@ -106,8 +107,9 @@ predictions = model.predict(x_test)
 predictions = [predictions[i,:].argmax() for i in range(int(predictions.shape[0]))]
 
 plt.scatter(x_test[:, 0], x_test[:, 1], c = predictions, cmap = 'coolwarm')
-plt.show()
-plt.scatter(x_test[:, 0], x_test[:, 1], c = y_test, cmap = 'coolwarm')
-plt.show()
+plt.draw()
+plt.savefig('fig2.png')
 
-plt.savefig('fig.png')
+plt.scatter(x_test[:, 0], x_test[:, 1], c = y_test, cmap = 'coolwarm')
+plt.draw()
+plt.savefig('fig3.png')
