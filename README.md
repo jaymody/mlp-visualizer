@@ -17,6 +17,7 @@ The trained model should be saved to saved_models/
 Below are the results using my data and network parameters.
 
 
+
 ## Model Summary
 The model is a simple mlp with 3 hidden layers, all using the relu activation function (output layer uses sigmoid). The summary can be found below:
 
@@ -37,9 +38,11 @@ Trainable params: 1,748
 Non-trainable params: 0
 
 
+
 ## Training Data
 The training data consists of 4 distinct classes, made up from 100 data points.
 ![Train Set](/figs/train_set.png)
+
 
 
 ## Training Loss
@@ -48,18 +51,22 @@ The data can be also found under saved_models/old_log.txt.
 ![Training](/figs/train_loss.png)
 
 
+
 ## Testing Data
 The test data is similar to the training data, however there is more data (200 points). When the model evaluates the training data, the labels should correspond to this graph.
 ![Test Set](/figs/test_set.png)
 
 
-Given that the above is the correct labels for the generated data, here is a plot of what the model predicted for the class of the data.
+## Predictions
+Here is a plot of what the model predicted for testing data.
 ![Prediction Set](/figs/prediction_set.png)
+
 
 
 As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the peach coloured class and red class.
 
 Overall, the network had an accuracy of **99.0%**
+
 
 
 ## Parameters
