@@ -21,22 +21,18 @@ Below are the results using my data and network parameters.
 The model is a simple mlp with 3 hidden layers, all using the relu activation function (output layer uses sigmoid). The summary can be found below:
 
 | Model Summary |
-\_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-\=================================================================
-dense_1 (Dense)              (None, 32)                96        
-\_________________________________________________________________
-dense_2 (Dense)              (None, 32)                1056      
-\_________________________________________________________________
-dense_3 (Dense)              (None, 16)                528       
-\_________________________________________________________________
-dense_4 (Dense)              (None, 4)                 68        
-\=================================================================
+
+Layer (type) | Output Shape | Param #
+--- | --- | ---
+*Still* | `renders` | **nicely**
+dense_1 (Dense) | (None, 32) | 96
+dense_2 (Dense) | (None, 32) | 1056
+dense_3 (Dense) | (None, 16) | 528
+dense_4 (Dense) | (None, 4) | 68
+
 Total params: 1,748
 Trainable params: 1,748
 Non-trainable params: 0
-\_________________________________________________________________
-
 
 
 ## Training Data
