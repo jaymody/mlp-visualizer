@@ -25,7 +25,6 @@ The model is a simple mlp with 3 hidden layers, all using the relu activation fu
 
 Layer (type) | Output Shape | Param #
 --- | --- | ---
-*Still* | `renders` | **nicely**
 dense_1 (Dense) | (None, 32) | 96
 dense_2 (Dense) | (None, 32) | 1056
 dense_3 (Dense) | (None, 16) | 528
