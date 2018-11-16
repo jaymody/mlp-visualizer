@@ -41,24 +41,27 @@ Non-trainable params: 0
 
 ## Training Data
 The training data consists of 4 distinct classes, made up from 100 data points.
+
 ![Train Set](/figs/train_set.png)
 
 
 
 ## Training Loss
-Here is a plot of the training and validation loss dring the training process.
-The data can be also found under saved_models/old_log.txt.
+Here is a plot of the training and validation loss dring the training process. The data can be also found under saved_models/old_log.txt.
+
 ![Training](/figs/train_loss.png)
 
 
 
 ## Testing Data
 The test data is similar to the training data, however there is more data (200 points). When the model evaluates the training data, the labels should correspond to this graph.
+
 ![Test Set](/figs/test_set.png)
 
 
 ## Predictions
 Here is a plot of what the model predicted for testing data.
+
 ![Prediction Set](/figs/prediction_set.png)
 
 
