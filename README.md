@@ -74,7 +74,7 @@ The final result:
 
 
 
-As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the peach coloured class and red class.
+As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the blue class and black class.
 
 Overall, the network had an accuracy of **99.3%**
 
@@ -94,16 +94,28 @@ For a full list of the editable paramaters, make sure you check out parameters.p
 
 ## Other Data Examples
 
-![N1](/networks/neural_network1542424062.898062.gif)
+![N](/networks/neural_network1542482492.070956.gif)
 
 
-![N1](/networks/neural_network1542426226.878786.gif)
+![N](/networks/neural_network1542424062.898062.gif)
 
 
-![N1](/networks/neural_network1542426470.394302.gif)
+![N](/networks/neural_network1542479334.236445.gif)
 
 
-![N1](/networks/neural_network1542426899.121683.gif)
+![N](/networks/neural_network1542480257.222606.gif)
 
 
-![N1](/networks/neural_network1542435967.21656.gif)
+![N](/networks/neural_network1542426226.878786.gif)
+
+
+![N](/networks/neural_network1542482492.070956.gif)
+
+
+![N](/networks/neural_network1542426470.394302.gif)
+
+
+![N](/networks/neural_network1542482833.081877.gif)
+
+
+![N](/networks/neural_network1542426899.121683.gif)

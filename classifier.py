@@ -10,24 +10,27 @@ from keras.optimizers import Adam
 from keras.callbacks import ModelCheckpoint
 
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_blobs
 
+from sklearn.datasets import make_blobs
+from sklearn.datasets import make_gaussian_quantiles
+from sklearn.datasets import make_moons
+from sklearn.datasets import make_circles
 
 
 ###  Dataset  ###
 x_train, y_train_raw = make_blobs(n_samples = n_training_samples, 
-	n_features = n_features, 
-	centers = n_classes, 
-	cluster_std = cluster_std,
-	center_box = center_box, 
+	n_features = n_features,
+	centers = n_classes,
+	center_box = center_box,
+	cluster_std =  cluster_std, 
 	random_state = seed)
 
 # one-hot encodes the y values (categorically encoding the data)
 y_train = np.zeros((y_train_raw.shape[0], n_classes))
 y_train[np.arange(y_train_raw.size), y_train_raw] = 1
 
-# scatterplot of the training  data
-plt.scatter(x_train[:, 0], x_train[:, 1], c = y_train_raw, cmap = 'coolwarm')
+# scatterplot of the training data
+plt.scatter(x_train[:, 0], x_train[:, 1], c = y_train_raw, cmap = colors)
 plt.draw()
 plt.savefig('{}{}'.format(path_plots, 'train_set.png'))
 plt.close()
@@ -103,4 +106,4 @@ plt.close()
 
 # Saves the model
 model.save('{}{}'.format(path_models, NAME))
-print("\nModel succsefully trained as saved, done executing classifier.py\n")
+print("\nModel succsefully trained and saved, done executing classifier.py\n")
