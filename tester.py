@@ -96,7 +96,7 @@ for img in paths:
     images.append(imread(img))
 
 cur_time = time.time()
-mimsave('{}neural_network{}.gif'.format(path_networks, cur_time, images)
+mimsave('{}neural_network{}.gif'.format(path_networks, cur_time), images)
 mimsave('{}neural_network_current.gif'.format(path_plots), images)
 
 # Output message to complete execution of code

@@ -8,7 +8,7 @@ l2 = 32 # second hidden layer nodes
 l3 = 16 # third hidden layer nodes
 n_classes = 4 # output nodes (the number of different classes)
 
-n_training_samples = 300 # number of training samples (num training points)
+n_training_samples = 200 # number of training samples (num training points)
 n_testing_samples = 300 # number of testing samples (num training points)
 cluster_std = 0.7 # the standard deviation of the data points from the center of the blob clusters
 center_box = (-10, 10) # try not to change this as the plots will not look right

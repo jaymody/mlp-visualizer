@@ -7,9 +7,13 @@ Using scikit API make_blob and keras, I created distinct number of clusters (num
 
 **1. Using anaconda, import the environment from environment.yml**
 
-**2. Run classifier.py**
+**2. Make any desired changes to parameters.py**
 
-**3. Run tester.py**
+**3. Run classifier.py**
+
+**4. Run tester.py**
+
+**5. Check out the figs/ folder for results**
 
 After running the program, new plots should be generated under figs/
 The trained model should be saved to saved_models/
