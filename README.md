@@ -74,7 +74,7 @@ The final result:
 
 
 
-As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the blue class and black class.
+As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the blue class and peach class.
 
 Overall, the network had an accuracy of **99.0%**
 
