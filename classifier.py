@@ -5,7 +5,9 @@ import numpy as np
 
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.layers import Dropout
 from keras.optimizers import Adam
+from keras.callbacks import ModelCheckpoint
 
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_blobs
@@ -16,7 +18,8 @@ from sklearn.datasets import make_blobs
 x_train, y_train_raw = make_blobs(n_samples = n_training_samples, 
 	n_features = n_features, 
 	centers = n_classes, 
-	cluster_std = cluster_std, 
+	cluster_std = cluster_std,
+	center_box = center_box, 
 	random_state = seed)
 
 # one-hot encodes the y values (categorically encoding the data)
@@ -52,9 +55,12 @@ assert(x_val.shape[0] == y_val.shape[0])
 model = Sequential()
 
 # Model layers
-model.add(Dense(l1, input_shape = x_train.shape[1:], activation = 'relu')) # input layer
-model.add(Dense(l2, activation = 'relu')) # hidden layer 1
-model.add(Dense(l3, activation = 'relu')) # hidden layer 2
+model.add(Dense(l1, input_shape = x_train.shape[1:], activation = 'relu')) # hidden layer 1
+model.add(Dropout(0.5))
+model.add(Dense(l2, activation = 'relu')) # hidden layer 2
+model.add(Dropout(0.5))
+model.add(Dense(l3, activation = 'relu')) # hidden layer 3
+model.add(Dropout(0.5))
 model.add(Dense(n_classes, activation = 'sigmoid')) # output layer
 
 # Prints a summary of the model shape/architecture
@@ -67,6 +73,10 @@ print()
 ###  Compile and Train Model  ###
 print("| Model Training |\n")
 
+# Creates callback for training that saves the model weights after each epoch
+checkpointer = ModelCheckpoint(filepath = 'saved_models/weights-{epoch:02d}.hdf5')
+callbacks_list = [checkpointer]
+
 # Compiles the model
 model.compile(loss = loss_op, 
 	optimizer = Adam(learn_rate), 
@@ -78,8 +88,10 @@ history = model.fit(x_train,
 	batch_size = batch_size, 
 	epochs = n_epochs, 
 	validation_data = (x_val, y_val), 
-	verbose = 2)
+	verbose = 2,
+	callbacks = callbacks_list)
 
+# Plots the train and validation loss
 loss_data = history.history['loss']
 val_loss_data = history.history['val_loss']
 plt.plot(loss_data)
@@ -87,6 +99,7 @@ plt.plot(val_loss_data)
 plt.legend(['loss', 'val_loss'])
 plt.draw()
 plt.savefig('{}{}'.format(path_plots, 'train_loss.png'))
+plt.close()
 
 # Saves the model
 model.save('{}{}'.format(path_models, NAME))

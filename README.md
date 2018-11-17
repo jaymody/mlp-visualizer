@@ -13,6 +13,7 @@ Using scikit API make_blob and keras, I created distinct number of clusters (num
 
 After running the program, new plots should be generated under figs/
 The trained model should be saved to saved_models/
+A gif of the networks predictions at the various epochs can also be found in figs/ but will also be saved to networks/
 
 Below are the results using my data and network parameters.
 
@@ -59,15 +60,19 @@ The test data is similar to the training data, however there is more data (200 p
 
 
 ## Predictions
-Here is a plot of what the model predicted for testing data.
+Here is a plot of the models predictions over time:
 
-![Prediction Set](/figs/prediction_set.png)
+![Predictions GIF](/figs/neural_network_current.gif)
+
+The final result:
+
+![Final Result](/figs/result.png)
 
 
 
 As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the peach coloured class and red class.
 
-Overall, the network had an accuracy of **99.0%**
+Overall, the network had an accuracy of **99.3%**
 
 
 
@@ -81,3 +86,20 @@ The seed is randomly generated, however you can easily change it to be any numbe
 The number of nodes for each of the 3 layers are also editable.
 
 For a full list of the editable paramaters, make sure you check out parameters.py
+
+
+## Other Data Examples
+
+![N1](/networks/neural_network1542424062.898062.gif)
+
+
+![N1](/networks/neural_network1542426226.878786.gif)
+
+
+![N1](/networks/neural_network1542426470.394302.gif)
+
+
+![N1](/networks/neural_network1542426899.121683.gif)
+
+
+![N1](/networks/neural_network1542435967.21656.gif)
