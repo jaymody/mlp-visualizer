@@ -76,7 +76,7 @@ The final result:
 
 As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the blue class and black class.
 
-Overall, the network had an accuracy of **99.3%**
+Overall, the network had an accuracy of **99.0%**
 
 
 
@@ -107,9 +107,6 @@ For a full list of the editable paramaters, make sure you check out parameters.p
 
 
 ![N](/networks/neural_network1542426226.878786.gif)
-
-
-![N](/networks/neural_network1542482492.070956.gif)
 
 
 ![N](/networks/neural_network1542426470.394302.gif)
