@@ -20,12 +20,14 @@ model = load_model('{}{}'.format(path_models, NAME))
 
 ###  Test Set  ###
 # Creates a new data set that the model will be tested with
-x_test, y_test = make_blobs(n_samples = n_testing_samples, 
+x_test, y_test = make_blobs(n_samples = n_testing_samples + n_training_samples, 
 	n_features = n_features,
 	centers = n_classes,
 	center_box = center_box,
 	cluster_std =  cluster_std, 
 	random_state = seed)
+x_test = x_test[-n_testing_samples:]
+y_test = y_test[-n_testing_samples:]
 
 # Gets the predictions of the model on the test set
 predictions = model.predict(x_test)

@@ -3,6 +3,10 @@
 
 Using scikit API make_blob and keras, I created distinct number of clusters (number of classes) of data that I trained using a simple fully connected multilayer-perceptron network. 
 
+
+![N](/networks/neural_network1542482492.070956.gif)
+
+
 **HOW TO RUN PROGRAM**
 
 **1. Using anaconda, import the environment from environment.yml**
@@ -98,6 +102,9 @@ For a full list of the editable paramaters, make sure you check out parameters.p
 
 
 ![N](/networks/neural_network1542424062.898062.gif)
+
+
+![N](/networks/neural_network1547237453.236765.gif)
 
 
 ![N](/networks/neural_network1542479334.236445.gif)
