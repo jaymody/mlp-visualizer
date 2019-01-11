@@ -4,7 +4,7 @@
 Using scikit API make_blob and keras, I created distinct number of clusters (number of classes) of data that I trained using a simple fully connected multilayer-perceptron network. 
 
 
-![N](/networks/neural_network1542482492.070956.gif)
+![Preview](/figs/neural_network_current.gif)
 
 
 **HOW TO RUN PROGRAM**
@@ -78,7 +78,7 @@ The final result:
 
 
 
-As you can see, the model predicted almost all of the samples correctly, except for the two points that are in between the blue class and black class.
+As you can see, the model predicted almost all of the samples correctly, except for the two points in the black region that were misclassified as red.
 
 Overall, the network had an accuracy of **99.0%**
 
@@ -123,3 +123,6 @@ For a full list of the editable paramaters, make sure you check out parameters.p
 
 
 ![N](/networks/neural_network1542426899.121683.gif)
+
+
+![N](/networks/neural_network1547248595.328089.gif)
