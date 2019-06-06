@@ -82,7 +82,7 @@ callbacks_list = [checkpointer]
 
 # Compiles the model
 model.compile(loss = loss_op, 
-	optimizer = Adam(learn_rate), 
+	optimizer = Adam(learn_rate),
 	metrics = ['accuracy'])
 
 # Trains the model
