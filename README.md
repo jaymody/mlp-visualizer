@@ -4,7 +4,7 @@
 Using scikit API make_blob and keras, I created distinct number of clusters (number of classes) of data that I trained using a simple fully connected multilayer-perceptron network. 
 
 
-![Preview](/figs/neural_network_current.gif)
+![Preview](/networks/neural_network1542426470.394302.gif)
 
 
 **HOW TO RUN PROGRAM**
